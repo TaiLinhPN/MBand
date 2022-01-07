@@ -134,7 +134,7 @@ async function signUp() {
     var passRe = document.querySelector("#pass-repeat-up").value
     var email = document.querySelector("#email-up").value
 
-   if (await getName(user) === null && checkPass(pass,passRe)){
+   if (await getName(user) === null && checkPass(pass,passRe)== true) {
         var data ={
             name: user,
             pass: pass,
@@ -150,23 +150,23 @@ async function signUp() {
 }
 
 async function signIn(){
-    var user = document.querySelector("#user-in").value
+    var userName = document.querySelector("#user-in").value
     var pass = document.querySelector("#pass-in").value
 
-    console.log(user)
-    var acc = await getName(user)
-    console.log(acc)
-    if(acc === null){
+    console.log(userName)
+    var data = await getName(userName)
+    console.log(data)
+    if(data === null){
         console.log("ten chua co")
     } else {
-        if(checkPass(pass,acc.pass) === false){
+        if(checkPass(pass,data.pass) === false){
             console.log("pass sai")
         } else {
             console.log("ok")
-            ipa.value = "https://61bc10bed8542f001782452a.mockapi.io/userApi/"+acc.id;  
-            ipaCustomer()
+            ipa = "https://61bc10bed8542f001782452a.mockapi.io/userApi/"+data.id;  
             closeModal()
-            signInSucc(acc)
+            signInSucc(data,ipa)
+            alert("Logged in successfully")
                     
         }
     }
@@ -174,11 +174,12 @@ async function signIn(){
 
 
 async function getName(userName){
-    var listName = await getUsers(usersApi)
+    var data = await getUsers(usersApi)
     
-    for(i = 0; i < listName.length; i++){
-        if (listName[i].name === userName){
-            return listName[i]
+    for(i = 0; i < data.length; i++){
+        if (data[i].name === userName){
+            
+            return data[i]
         } 
     }
     return null   
@@ -211,4 +212,8 @@ function handleData(usersApi,options){
 async function getUsers(Api){
    return await fetch(Api)   
         .then(res=>res.json())      
+}
+
+function signInSucc(acc,ipa){
+
 }
