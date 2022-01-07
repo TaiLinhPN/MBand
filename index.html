@@ -31,7 +31,13 @@
 
             </ul>
             <!-- search-buton -->
-            <div class="header-search"><i class=" fas fa-search"></i></div>
+
+            <div class="login-signup">
+                <div class="header-Login" onclick="openLog()">Login</div>
+                <div class="header-Signup" onclick="openSign()">Signup</div>
+            </div>
+
+            <div class="header-search"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
 
             <div id="menu-mobile" class="header-menu"><i class="fa fa-bars" aria-hidden="true"></i></div>
 
@@ -54,17 +60,17 @@
                 <div class="row member-list">
                     <div class="text-center col col-3 mobile-item ">
                         <div class="member-name">Name</div>
-                        <img src=".//assets/img/member.jpg" alt="" class="img-member">
+                        <img src="./assets/img/3af0e55ea66ea69e35145fb108b4a636.jpg" alt="" class="img-member">
                     </div>
 
                     <div class="text-center col col-3 mobile-item">
                         <div class="member-name">Name</div>
-                        <img src=".//assets/img/member.jpg" alt="" class="img-member">
+                        <img src="./assets/img/design-your-album-cover.jpg" alt="" class="img-member">
                     </div>
 
                     <div class="text-center col col-3 mobile-item">
                         <div class="member-name">Name</div>
-                        <img src=".//assets/img/member.jpg" alt="" class="img-member">
+                        <img src="./assets/img/Something_Big.jpg" alt="" class="img-member">
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -84,7 +90,7 @@
 
                     <div class="place-list row">
                         <div class="col-3 col mobile-item m-t-16">
-                            <img src="./assets/img/newyork.jpg" alt="New York" class="place-img">
+                            <img src="./assets/img/eiffel-tower.jpg" alt="New York" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
@@ -94,7 +100,7 @@
                         </div>
 
                         <div class="col-3 col mobile-item m-t-16">
-                            <img src="./assets/img/paris.jpg" alt="New York" class="place-img">
+                            <img src="./assets/img/london.jpg" alt="New York" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
@@ -104,7 +110,7 @@
                         </div>
 
                         <div class="col-3 col mobile-item m-t-16">
-                            <img src="./assets/img/sanfran.jpg" alt="New York" class="place-img">
+                            <img src="./assets/img/freedom-tower.jpg" alt="New York" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">New York</h3>
                                 <p class="place-time">Fri 27 Nov 2016</p>
@@ -155,7 +161,7 @@
             </div>
 
             <div class="map-section">
-                <img src="./assets/img/map.jpg" alt="" class="">
+                <img src="./assets/img/singapore.jpg" alt="" class="">
             </div>
 
 
@@ -170,9 +176,16 @@
                 <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>   
             </div>
-            <p class="copyright">Powered by <a href="">w3.css</a></p>
+            
            
 
+        </div>
+    </div>
+
+    <div class="modal-login">
+        <div class="modal-container">
+            <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
+            <div class="add-content">herr</div>
         </div>
     </div>
     <!-- <div class="modal">
@@ -212,62 +225,7 @@
     </div> -->
 
 
-    <script>
-        var headerElement = document.getElementById('header');
-        var menuElement = document.getElementById('menu-mobile');
-        var menuHight = headerElement.clientHeight;
-        
-        menuElement.onclick = function() {
-            var isClosed = headerElement.clientHeight === menuHight
-            if (isClosed) {
-                headerElement.style.height = 'auto'
-            } else {
-                headerElement.style.height = null
-            }
-        }            
-
-        var count = 0    
-        var menuItems = document.querySelectorAll('.nav li a[href*="#"]')
-        
-        var subNav = document.getElementById('sub-nav-id');
-        
-        for (var i = 0; i < menuItems.length; i++) {
-            var menuItem = menuItems[i];
-           
-
-
-            menuItem.onclick = function(event) {
-            var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('sub-nav')
-
-                if (isParentMenu) {
-                    event.preventDefault()
-                    count += 1
-                    console.log(count)
-
-                } else {
-                    headerElement.style.height = null 
-                                      
-                }
-
-                if (count % 2 === 0) {
-                    subNav.style.display = 'none'
-                } else {
-                    subNav.style.display = null
-
-                }
-                
-                
-
-                
-            }
-
-
-        }
-        
-        
-        
-
-    </script>
+    <script src="./main.js"></script>
     
 </body>
 </html>
