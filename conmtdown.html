@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo</title>
+	</head>
+<body>
+	<script>
+        var count = 120;
+        var seconds = 60
+        var minutes = 1
+        var x = 1
+
+        function TestFunction() {
+            if (x == 0){
+                return
+            }
+            count--;
+            if(count == 0) {
+                return ;
+            }
+
+            seconds--
+            if(seconds == 0) {
+                seconds = 59,
+                minutes-- }
+            if (seconds < 10){
+                seconds = "0"+ seconds
+                
+            }
+            
+            document.getElementById("lblText").innerHTML = "0"+minutes + ":" + seconds;
+            seconds = parseFloat(seconds)
+
+            t = setTimeout("TestFunction(x)", 1000);            
+        }
+
+        function stop(){
+            x = 0
+        }
+        
+    </script>
+
+    <label id="lblText" style="color: aqua;">0</label>
+    <input type="button" id="btnTest" onclick="TestFunction()" value="Click me" />
+    <input type="button" id="btnStop" onclick="stop()" value="stop" />
+    <input type="button" id="btnStop" onclick="start()" value="start" />
+
+</body>
+</html>

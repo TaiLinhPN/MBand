@@ -172,7 +172,6 @@ async function signIn(){
     }
 }
 
-
 async function getName(userName){
     var data = await getUsers(usersApi)
     
@@ -214,6 +213,33 @@ async function getUsers(Api){
         .then(res=>res.json())      
 }
 
-function signInSucc(acc,ipa){
+var accCustomer = ""
+var ipaCustomer = ""
 
+function signInSucc(acc,ipa){
+    accCustomer = acc
+    ipaCustomer = ipa
+    
+}
+
+function logOut(){
+    accCustomer = ""
+    ipaCustomer = ""
+    alert("You have been logged out")
+    
+}
+
+function checkLoggedIn(){
+    if(!ipaCustomer){
+        alert("Please login")
+    } else{
+        return true
+
+    }
+}
+
+function openModalBuyTickets(){
+    if(!checkLoggedIn()){
+
+    }
 }

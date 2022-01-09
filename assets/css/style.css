@@ -322,13 +322,8 @@ line-height: 48px;
 	line-height: 1.4;
 }
 
-.place-btn {
+.place-btn  {
 	margin-top: 15px;
-	/* border: none;	 */
-
-}
-
-.place-btn a {
 	display: block;
 	padding: 10px 21px;
 	background-color: #000;
@@ -488,8 +483,10 @@ line-height: 48px;
 
 }
 
+/* ============================ */
 .header-Login,
-.header-Signup{
+.header-Signup,
+.header-logOut{
 	margin: 10px;
 	color: rgb(255, 255, 255);
 	line-height:46px;
