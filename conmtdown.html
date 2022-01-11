@@ -14,23 +14,22 @@
             if (x == 0){
                 return
             }
-            count--;
-            if(count == 0) {
-                return ;
+            if(count == 1) {
+                stop()
             }
 
+            count--
             seconds--
+
             if(seconds == 0) {
                 seconds = 59,
                 minutes-- }
             if (seconds < 10){
-                seconds = "0"+ seconds
-                
+                seconds = "0"+ seconds 
             }
             
-            document.getElementById("lblText").innerHTML = "0"+minutes + ":" + seconds;
+            document.getElementById("time-add").innerHTML = "0"+minutes + ":" + seconds;
             seconds = parseFloat(seconds)
-
             t = setTimeout("TestFunction(x)", 1000);            
         }
 
