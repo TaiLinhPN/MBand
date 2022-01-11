@@ -264,7 +264,7 @@ htmlBuyticlets = `
 
                             </div>
                             <div class="col">
-                                <div class="value-DO">9.2</div>
+                                <div class="value-DO">choosing</div>
                             </div>
                         </div>
                         <div class="row">
@@ -272,7 +272,7 @@ htmlBuyticlets = `
                                 <p>Refund Protection</p>
                             </div>
                             <div class="col">
-                                <div class="value-RP">9.2</div>
+                                <div class="value-RP">choosing</div>
                             </div>
                         </div>
                         <div class="row">
@@ -281,7 +281,7 @@ htmlBuyticlets = `
                             </div>
                             <div class="col">
                                 <p>Total</p>
-                                <div class="ticket-Total">9.2</div>
+                                <div class="ticket-Total"></div>
                             </div>
                         </div>
 
@@ -509,9 +509,11 @@ async function Buyticlets(x){   // main
         else {
             // if(checkRoobot()){
                 openModal(htmlBuyticlets) //handel data
-                
+
                 setTimeStart()
                 countdown()
+                
+                
             // }
         }
 
@@ -593,19 +595,31 @@ function payment(){                                                     // main
     var refundProtection = document.getElementsByName("refund-protection")
     var PaymentOptions = document.getElementsByName("Payment-options")
 
-    if(checkRadio(deliveryOptions,refundProtection,PaymentOptions)){
+    
 
+    if(checkRadio(deliveryOptions,refundProtection,PaymentOptions)){
+        window.location.assign("payment.html")
     }
 }
 
+// ============================== getCost
+
+function getCost1(){
+    var deliveryOptions = document.getElementsByName("delivery-options")
+    getValueRadio(deliveryOptions)
+
+    value-DO
+}
+
+
 // ============================== countdown
-var count = 120;
+var count = 120
 var seconds = 60
 var minutes = 1
 var x = 1
 
 function setTimeStart(){
-    count = 120;
+    count = 120
     seconds = 60
     minutes = 1
     x = 1
@@ -636,9 +650,9 @@ function countdown() {
         seconds = "0"+ seconds 
     }
     
-    document.getElementById("time-add").innerHTML = "0"+minutes + ":" + seconds;
+    document.getElementById("time-add").innerHTML = "0"+minutes + ":" + seconds
     seconds = parseFloat(seconds)
-    t = setTimeout("countdown(x)", 1000);            
+    t = setTimeout("countdown(x)", 1000)            
 }
 
 function stopTime(){
