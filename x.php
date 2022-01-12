@@ -4,43 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dien Tich</title>
 </head>
-<body>
+    
+    <body>
+        <form name ="frm_Dientich" method="post" action="index.php">  
+            <table width ="500">
+                <tr >
+                    <td colspan="2">DIỆN TÍCH HÌNH CHỮ NHẬT</td>
+                </tr>
+                <tr>
+                    <td>chiều dài</td>
+                    <td><input type ="text" name="chieu_dai"  id="chieu_dai" value ="<?php echo $dai ?>" /></td>
+                </tr>
+                <tr>
+                    <td>chiều rộng</td>
+                    <td><input type ="text" name="chieu_rong" id="chieu_rong" value ="<?php echo $rong ?>" /></td>
+                </tr>
+                <tr>
+                    <td>diện tích</td>
+                    <td><input type ="text" name="dien_tich"  id="dien_tich" value ="<?php echo $tinh ?>" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><input type ="submit" name="bntTinh" onclick="tinh()" value="Tính" /></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            function tinh(){
+                document.getElementById("dien_tich").innerHTML = $dai*$rong
+            }
+        </script>
+    </body>
     <?php
-      $dai = $_POST['dai'];
-      $rong = $_POST["rong"];
-      $dt = $dai * $rong;
+        //Khai báo biến và khởi tạo gái trị cho biến
+         $dai =$_POST["dai"];
+         $rong =$_POST["rong"];
+        // thuật toán
+        $tinh
+        
     ?>
-    <form id="forml" name ="forml"  method ="POST" action="s_hcn.php">
-        <table width ="400" border="0" align="center" cellpadding = "2" cellspacing ="2">
-            <tr>
-                <td colspan ="2" align="center"><span class = "stylel">Diện tích hình chữ nhật</span></td>
-            </tr>
-            <tr>
-                <td width ="125"><span>Chiều dài :</span></td>
-                <td><label>
-                    <input type="text" name ="dai" id ="dai" value="<?php echo $dai; ?> " size="20">
-                </label></td>
-            </tr>
-            <tr>
-                <td width ="125"><span>Chiều rộng :</span></td>
-                <td><label>
-                    <input type="text" name ="rong" id ="rong" value="<?php echo $rong; ?> " size="20">
-                </label></td>
-            </tr>
-            <tr>
-                <td width ="125"><span>Diện tích :</span></td>
-                <td><label>
-                    <input type="text" value="<?php echo $dt; ?> " size="20">
-                </label></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <label for=""><input type="submit" name="Submit" value="Tính"></label>
-                </td>
-            </tr>
-        </table>
-    </form>
-</body>
 </html>
+
