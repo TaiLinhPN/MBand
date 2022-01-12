@@ -50,6 +50,8 @@
 // }
 
 htmlLog = `<div class="login-wrap">
+<i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
+
 <div class="login-html">
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
@@ -106,35 +108,38 @@ htmlLog = `<div class="login-wrap">
 
 htmlTickets = `
 <div class="modal-tickets">
+            <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
+
 
             <div class="row">
-                <div class="col col-1">
+                <div class="grid-mb col col-one mobile-item  ">
                     <div class="img">
                         <img src="https://c.ststat.net/content/entimg//--1237882946-300x300.jpg" alt="">
                     </div>
-                    <div class="infor">
+                    <div class="infor infor2 mobile-itemPP ">
                         <h2 class="address">Bedford Esquires, Room 2, Bedford</h2>
                         <p class="time">Thursday 27 Jan 2022 at 19:30.</p>
                         <p>Performing</p>
                         <p class="name">BILK</p>
                     </div>
                 </div>
-                <div class="col col-2">
+                <div class="col col-two clear-mg-bottom mobile-item  ">
                     <div class="infor infor2">
-                     
-                        
-                            <p>14+ only. 14s to 16s must be accompanied by an adult. No refunds will be given for incorrectly booked tickets.</p>
-                            <p id="warning1"></p>
+                            <i>14+ only. 14s to 16s must be accompanied by an adult. No refunds will be given for incorrectly booked tickets.</i>
+                    </div>
+
+                    <div class="infor infor2">        
+                            <p  id="warning1" class="warningP"></p>
                           <div class="row">
-                              <div class="col">Ticket type</div>
-                              <div class="col">Cost</div>
-                              <div class="col">Quantity</div>
+                              <div class="col-cus">Ticket type</div>
+                              <div class="col-cus">Cost</div>
+                              <div class="col-cus">Quantity</div>
                           </div>
                           
                           <div class="row">
-                            <div class="col">GENERAL ADMISSION</div>
-                            <div class="col">$9.2</div>
-                            <div class="col">
+                            <div class="col-cus">GENERAL</div>
+                            <div class="col-cus">$9.2</div>
+                            <div class="col-cus">
                                 <select onclick="removeWarning(warning1)" id="Selection-tickets">
 
                                     <option value="0">0</option>
@@ -151,9 +156,9 @@ htmlTickets = `
                             </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <div style="margin-top: 10px;" class="row">
                             <div class="col">
-                                <p>* Handling and delivery fees may apply to your order</p>
+                                <i>* Handling and delivery fees may apply to your order</i>
                             </div>
                             <div class="col">
                                 <button onclick="Buyticlets()">Continue </button> 
@@ -166,81 +171,98 @@ htmlTickets = `
         </div>`
 
 htmlBuyticlets = `
-<div class="modal-tickets">
+
+<div class="modal-tickets modal-tickets2 ">
+<i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
 
             <div class="row">
-                <div class="col col-1">
-                    <div class="img">
-                        <img src="https://c.ststat.net/content/entimg//--1237882946-300x300.jpg" alt="">
+                <div class=" col col-one mobile-item ">
+                    <div class="none-mb img">
+                        <img class=" none-mb" src="https://c.ststat.net/content/entimg//--1237882946-300x300.jpg" alt="">
                     </div>
+                    <div class="none-mb infor infor2">
                     <div class="infor">
                         <h2 class="address">Bedford Esquires, Room 2, Bedford</h2>
                         <p class="time">Thursday 27 Jan 2022 at 19:30.</p>
                         <p>Performing</p>
                         <p class="name">BILK</p>
                     </div>
+                    </div>
+                    <div class="mg-0-mb infor infor2 ">
 
-                    <div class="infor cont-time">
-                        <p class="countdown-time">Your tickets are held for <p id="time-add">05:00</p></p>
+                    <div class=" infor cont-time ">
+                        <p class="countdown-time">Your tickets are held for <p id="time-add">02:00</p></p>
+                    </div>
                     </div>
                 </div>
-                <div class="col col-2">
+                <div class="col col-two height-510 mobile-item">
                     <div class="infor infor2">
                         <h2>Delivery Options</h2>
-                        <p id="warning1"></p>
+                        <p  id="warning1" class="warningP"></p>
                         
                             <div class="box">
-                                <label onclick="removeWarning(warning1)" for="delivery-options-1" class="contain">
+                                <label onclick="removeWarning(warning1),getCost1()" for="delivery-options-1" class="contain">
                                     <input  type="radio" name="delivery-options"  id="delivery-options-1" value="2.5" >
+                                    <p class="pBox">
                                     Standard Delivery
+                                    </p>
                                     <span class="postage-price ">£2.50 </span>
                                     <br>
-                                    <small class="postage-info">Your tickets will be delivered to the address you specify.</small>
+                                    <p class="postage-info">Your tickets will be delivered to the address you specify.</p>
                                 </label>
                             </div>
 
                             <div class="box">
-                                <label onclick="removeWarning(warning1)" for="delivery-options-2" class="contain">
+                                <label onclick="removeWarning(warning1),getCost1()" for="delivery-options-2" class="contain">
                                     <input  type="radio" name="delivery-options"  id="delivery-options-2" value="0">
+                                    <p class="pBox">
                                     Box Office Collection
+                                    </p>
+
                                     <span class="postage-price ">FREE</span>
                                     <br>
-                                    <small class="postage-info">Your tickets will be available for collection from the venue box office on the day. You will need to quote your order reference number and must provide a payment card or ID matching your booking details. All members of your party must arrive together, and tickets will not be issued without proof of booking.</small>
+                                    <p class="postage-info">Your tickets will be available for collection from the venue box office on the day. You will need to quote your order reference number and must provide a payment card or ID matching your booking details. All members of your party must arrive together, and tickets will not be issued without proof of booking.</p>
                                 </label>
                             </div>
 
                             <div class="box">
-                                <label onclick="removeWarning(warning1)" for="delivery-options-3" class="contain">
+                                <label onclick="removeWarning(warning1),getCost1()" for="delivery-options-3" class="contain">
                                     <input  type="radio" name="delivery-options"  id="delivery-options-3" value="0">
+                                    <p class="pBox">
                                     E-Ticket
+                                    </p>
                                     <span class="postage-price ">FREE</span>
                                     <br>
-                                    <small class="postage-info">Your tickets will be attached to your confirmation email. Please ensure you can display your tickets on your phone or bring printed copies, as you will not gain access to the venue without them.</small>
+                                    <p class="postage-info">Your tickets will be attached to your confirmation email. Please ensure you can display your tickets on your phone or bring printed copies, as you will not gain access to the venue without them.</p>
                                 </label>
                             </div>
                     </div>
 
                     <div class="infor infor2">
                         <h2>Refund Protection</h2>
-                        <p id="warning2"></p>
+                        <p  id="warning2" class="warningP"></p>
                         
                         <div class="box">
-                            <label onclick="removeWarning(warning2)" for="refund-protection-1" class="contain">
+                            <label onclick="removeWarning(warning2),getCost2()" for="refund-protection-1" class="contain">
                                 <input  type="radio" name="refund-protection"  id="refund-protection-1" value="3.2" >
+                                <p class="pBox">
                                 Yes, please protect my tickets
+                                </p>
                                 <span class="postage-price ">£3.20 </span>
                                 <br>
-                                <small class="postage-info">I can apply for a refund if I am unable to attend this event due to accidents, unexpected illnesses or specified unforeseen circumstances. By adding to my order I confirm that I have read and accepted TicketPlan's terms and conditions.</small>
+                                <p class="postage-info">I can apply for a refund if I am unable to attend this event due to accidents, unexpected illnesses or specified unforeseen circumstances. By adding to my order I confirm that I have read and accepted TicketPlan's terms and conditions.</p>
                             </label>
                         </div>
 
                         <div class="box">
-                            <label onclick="removeWarning(warning2)" for="refund-protection-2" class="contain">
+                            <label onclick="removeWarning(warning2),getCost2()" for="refund-protection-2" class="contain">
                                 <input  type="radio" name="refund-protection"  id="refund-protection-2" value="0">
+                                <p class="pBox">
                                 No, do not protect my tickets.
+                                </p>
                                 
                                 <br>
-                                <small class="postage-info">I understand no refund can be given if I cannot attend.</small>
+                                <p class="postage-info">I understand no refund can be given if I cannot attend.</p>
                             </label>
                         </div>
                     </div>
@@ -249,74 +271,105 @@ htmlBuyticlets = `
                         <h2 class="name">bilk</h2>
                         <p class="time-asdress">Thursday 27 Jan 2022 at 19:30 | Bedford Esquires, Room 2, Bedford</p>
                         <div class="row">
-                            <div class="col">
+                            <div class="flex-1 col">
                                 <p class="ticket-num">1</p>
-                                <p> x GENERAL ADMISSION</p>
+                                <p class="ticket-na"> x GENERAL ADMISSION</p>
 
                             </div>
-                            <div class="col">
-                                <div class="ticket-cost">9.2</div>
+                            <div class="flex-1 col">
+                                <div id="ticket-cost">9.2</div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="flex-1 col">
                                 <p>Delivery Options</p>
 
                             </div>
-                            <div class="col">
-                                <div class="value-DO">choosing</div>
+                            <div class="flex-1 col">
+                                <div id="value-DO">choosing</div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">                              
+                            <div class="flex-1 col">                              
                                 <p>Refund Protection</p>
                             </div>
-                            <div class="col">
-                                <div class="value-RP">choosing</div>
+                            <div class="flex-1 col">
+                                <div id="value-RP">choosing</div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">                              
+                            <div class="flex-1 col">                              
+                            <p>Total</p>
                                 
                             </div>
-                            <div class="col">
-                                <p>Total</p>
-                                <div class="ticket-Total"></div>
+                            <div class="flex-1 col">
+                                <div id="ticket-Total"></div>
                             </div>
                         </div>
 
                         <h1>Choose Payment Method</h1>
-                        <p id="warning3"></p>
+                        <p  id="warning3" class="warningP"></p>
 
                         <div class="box">
+
                             <label onclick="removeWarning(warning3)" for="Payment-options-1" class="contain">
+
+                            <div class="row">
+                            
+                            <div style="flex:1"  class="col nut">
                                 <input  type="radio" name="Payment-options"  id="Payment-options-1" value="card" >
+                                </div>
+                                <div style="flex:9" class="col">
+
                                 <p class="img-payment">
-                                    <img style="width:10%" src="https://cdn3.volusion.com/pysyf.hcsdd/v/vspfiles/photos/NTW-Visa-Gradient-2T.jpg?v-cache=1583923346" alt="">
-                                    <img style="width:10%"src="https://cdn3.volusion.com/pysyf.hcsdd/v/vspfiles/photos/NTW-Master-2017-2T.jpg?v-cache=1583923346" alt="">
+                                    <img style="width:20%" src="https://cdn3.volusion.com/pysyf.hcsdd/v/vspfiles/photos/NTW-Visa-Gradient-2T.jpg?v-cache=1583923346" alt="">
+                                    <img style="width:20%"src="https://cdn3.volusion.com/pysyf.hcsdd/v/vspfiles/photos/NTW-Master-2017-2T.jpg?v-cache=1583923346" alt="">
                                 </p>
+                                </div>
+                                </div>
                             </label>
+                            </div>
+
+                        <div class="box">
+
 
                             <label onclick="removeWarning(warning3)" for="Payment-options-2" class="contain">
+                            <div class=" row">
+                            <div style="flex:1"  class="col nut">
                                 <input  type="radio" name="Payment-options"  id="Payment-options-2" value="paypal" >
+                                </div>  
+                                <div style="flex:9" class="col">
                                 <p class="img-payment">
-                                    <img style="width:20%" src="https://file.hstatic.net/1000012850/file/paypal-logo-2015_grande.png" alt="">
+                                    <img style="width:40%" src="https://file.hstatic.net/1000012850/file/paypal-logo-2015_grande.png" alt="">
                                 </p>
+                            </div>
+                            </div>
                             </label>
+                            </div>
+                            <div class="box">
+
                             <label onclick="removeWarning(warning3)" for="Payment-options-3" class="contain">
+                            <div class="row">
+                            <div style="flex:1"  class="col nut">
                                 <input  type="radio" name="Payment-options"  id="Payment-options-3" value="momo">
+                                </div>
+                                <div style="flex:9"  class="col">
+
                                 <p class="img-payment">
-                                    <img style="width:7%" src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="">
+                                    <img style="width:18%" src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="">
                                 </p>
+                                </div>
+
                             </label>
+
                         </div>
 
+                        
+                        
+                        
+                        
+                        </div>
                         <button class="pay" onclick="payment()">Continue<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-
-                        
-
-                        
-                    </div>
 
                    
 
@@ -508,6 +561,22 @@ async function Buyticlets(x){   // main
         
         else {
             // if(checkRoobot()){
+
+                var ipa = await chooseTickets(ipa1)
+                console.log(ipa)
+
+                var dataPut = await getData(ipa)
+                console.log(dataPut)
+                dataPut = {
+                    state: "hold",
+                    peopleNum: parseInt(ticketChoosing),
+                }
+
+                // console.log(dataPut)
+                // await putdata(ipa,dataPut)
+                // console.log(await getData(ipa))
+
+
                 openModal(htmlBuyticlets) //handel data
 
                 setTimeStart()
@@ -541,9 +610,22 @@ async function chooseTickets(ipa){
             ipaTicket = ipa +"/"+data[i].id
             console.log(ipaTicket)
             // updateTicket(ipaTicket)
-            break;
+            return ipaTicket;
         }
     }
+    alert("vé đã hết")
+}
+
+async function putdata(id,data) {
+    var options = {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {'Content-Type': 'application/json'}
+    }
+    await fetch(id,options)
+        .then(function (response){
+            response.json()
+        })
 }
 
 // ===================================== step payment
@@ -556,6 +638,7 @@ function getValueRadio(list){
             return list[i].value
         }
     }
+    return 0
 }
 
 function checkRadio(name1,name2,name3){
@@ -585,7 +668,6 @@ function checkRadio(name1,name2,name3){
 }
 
 function removeWarning(id){
-    console.log("id",id)
     id.innerHTML = ""
 }
 
@@ -602,14 +684,29 @@ function payment(){                                                     // main
     }
 }
 
-// ============================== getCost
+// ============================== total
 
+var deliveryOptions = document.getElementsByName("delivery-options")    
+var refundProtection = document.getElementsByName("refund-protection")    
 function getCost1(){
-    var deliveryOptions = document.getElementsByName("delivery-options")
-    getValueRadio(deliveryOptions)
+    document.getElementById("value-DO").innerHTML = getValueRadio(deliveryOptions)   
+    total()
 
-    value-DO
 }
+function getCost2(){
+    document.getElementById("value-RP").innerHTML = getValueRadio(refundProtection)  
+    total() 
+}
+
+function total(){                        //main
+    var total = 0
+    total =  parseFloat(getValueRadio(deliveryOptions))  + parseFloat(getValueRadio(refundProtection))  + 9.2
+    document.getElementById("ticket-Total").innerHTML = total.toFixed(2) +"$"
+}
+// function getCost1(){
+//     var deliveryOptions = document.getElementsByName("delivery-options")    
+//     document.getElementById("value-DO").innerHTML = getValueRadio(deliveryOptions)   
+// }
 
 
 // ============================== countdown
@@ -632,19 +729,19 @@ function countdown() {
         // move final step
         return
     }
-    if(count == 1) {
+    if(count == 0) {
         stopTime()
+        document.getElementById("time-add").innerHTML = "00:00"
+            
+        alert("Time to buy tickets has expired, please return to the main page")
+        closeModal()
+        return
     }
 
     if(seconds == 0) {
-        seconds = 59,
-        minutes--
-        if( minutes == 0){
-            document.getElementById("time-add").innerHTML = "00:00"
-            //  call return scren
-
-            return
-        }
+        seconds = 59;
+        minutes--;
+        
      }
     if (seconds < 10){
         seconds = "0"+ seconds 
@@ -660,3 +757,7 @@ function stopTime(){
 }
 
 // ============================== stop countdown
+// window.onbeforeunload = function () {
+//     console.log("aaaaaaaaaaaaaaaa")
+//     return 'Các thay đổi chưa lưu của bạn sẽ bị mất.';
+// }

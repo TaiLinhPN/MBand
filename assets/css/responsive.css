@@ -43,7 +43,7 @@
 
     .mobile-item {
         /* margin-bottom: 15px; */
-        width: 100%;
+        width: 100% !important; 
     }
 
     .contact-fomt {
@@ -54,4 +54,28 @@
         width: 100%;
     }
 
+    .modal-tickets .img {
+        margin-bottom: 14px;
+        width: 50%;
+        display: inline-block;
+    }
+
+    .mobile-itemPP{
+        width: 50%;
+        display: inline-block;
+
+    }
+    .grid-mb{
+        display: flex;
+        margin-right: 23px;
+        /* flex-direction: column; */
+        
+    }
+    .none-mb{
+        display: none;
+    }
+    .mg-0-mb{
+        margin-bottom: 0 !important;
+        margin-right: 24px !important;
+    }
 }

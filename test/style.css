@@ -126,3 +126,9 @@ hr {
     width: 16%;
     margin: 0% 0% 1% 6.4%;
 }
+
+.modal-tickets {
+    background: #fff;
+    width: 800px;
+    margin: 0 auto;
+}
