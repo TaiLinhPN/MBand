@@ -85,7 +85,7 @@ a {
 
 }
 #main {
-    margin-top: -101px;
+    margin-top: 48px;
 }
 
 .nav{
@@ -786,7 +786,7 @@ p.countdown-time, p#time-add,p.ticket-num,p.ticket-na {
 
 .pBox{
 	display: inline-block;
-	width: 85%;
+	width: 82%;
 }
 
 .lightH {
