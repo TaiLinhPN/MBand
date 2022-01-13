@@ -107,7 +107,7 @@ htmlLog = `<div class="login-wrap">
 </div>`
 
 htmlTickets = `
-<div class="modal-tickets tic">
+<div class="modal-tickets">
             <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
 
 
@@ -172,7 +172,7 @@ htmlTickets = `
 
 htmlBuyticlets = `
 
-<div class="modal-tickets modal-tickets2 tic ">
+<div class="modal-tickets modal-tickets2 ">
 <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
 
             <div class="row">
@@ -384,18 +384,6 @@ htmlBuyticlets = `
             </div>
         </div>`
 
-
-var htmlMail =`
-<div class="momo">
-<i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
-
-.contaiMomo
-
-    <img style="margin: 0px 800px 0;" src="./assets/img/Qrcode.png" alt="">
-    
-    <button style="margin: 0 900px ;" onclick="sendPDF()">ok</button>
-    </div>
-`
 var modalLog = document.querySelector('.modal-login')
 var modal = document.querySelector('.add-content')
 
@@ -692,7 +680,7 @@ function payment(){                                                     // main
     
 
     if(checkRadio(deliveryOptions,refundProtection,PaymentOptions)){
-        openModal(htmlMail)
+        window.location.assign("payment.html")
     }
 }
 
