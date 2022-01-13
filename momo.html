@@ -18,7 +18,18 @@
 body{
         background-color: rgb(32, 32, 32);
     }
+    .row-m-m{
+	display: flex;
+}
+.row-m-m .col-m{
+	flex:1;
+	width: 50%;
+}
 
+.col-m img{
+	margin: 10px;
+	width: 100%;
+}
 
 
 
@@ -26,12 +37,25 @@ body{
 <body>
     <div class="momo">
         <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
+        <h2>Pay with MoMo</h2>
         
-        
-        
-            <img src="./assets/img/Qrcode.png" alt="">
-            
-            <button  onclick="sendPDF()">ok</button>
+        <div class="row-m-m">
+            <div class="col-m">
+                <h3>QR code</h3>
+                <img src="./assets/img/Qrcode.png" alt="">
+
             </div>
+            <div class="col-m">
+                <p>Your bill</p>
+                <p id="info-m">Thursday 27 Jan 2022 at 19:30 | Bedford Esquires, Room 2, Bedford</p>
+                <p id="pe-m">2</p>
+                <p id="Toa-m">12.6$</p>
+
+            </div>
+
+        </div>
+            
+        <button  onclick="sendPDF()">ok</button>
+    </div>
 </body>
 </html>
