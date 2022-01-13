@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,30 +7,65 @@
     <title>Document</title>
 </head>
 <style>
-     .momo {
-    width: 800px;
+     
+
+body{
+    background-color: rgb(32, 32, 32);
+}
+.momo {
+    /* width: 800px; */
     max-width: 800px;
     margin: 0 auto;
     background-color: rgb(253, 253, 253);
     
 }
+.momo h2{
+ padding-top:30px ;
+}
+.momo h2,
+.momo h3 {
+    text-align: center;
+    margin: 0;
 
-body{
-        background-color: rgb(32, 32, 32);
-    }
-    .row-m-m{
+}
+.momo{
+    padding: 20px;
+}
+.row-m-m{
 	display: flex;
+    flex-wrap: wrap;
+
 }
-.row-m-m .col-m{
-	flex:1;
+.row-m-m .col-mmm{
 	width: 50%;
+    position: relative;
+    
 }
 
-.col-m img{
-	margin: 10px;
+.col-mmm img{
 	width: 100%;
 }
+.momo .infor{
+    padding: 10px;
 
+}
+.boxBorder{
+    border: solid 2px rgb(0, 0, 0);
+    padding:10px;
+    margin-bottom: 20px;
+
+}
+
+.btn-pay{
+    color: #fff;
+    background-color: #000;
+    border: none;
+    padding: 10px 20px;
+    position: absolute;
+    /* bottom: 10px;
+    right: 10px; */
+    /* width: 100%; */
+}
 
 
 </style>
@@ -40,22 +75,35 @@ body{
         <h2>Pay with MoMo</h2>
         
         <div class="row-m-m">
-            <div class="col-m">
+            <div class="col-mmm">
                 <h3>QR code</h3>
-                <img src="./assets/img/Qrcode.png" alt="">
+
+                    <img src="./assets/img/QRcode.jpg" alt="">
 
             </div>
-            <div class="col-m">
-                <p>Your bill</p>
-                <p id="info-m">Thursday 27 Jan 2022 at 19:30 | Bedford Esquires, Room 2, Bedford</p>
-                <p id="pe-m">2</p>
-                <p id="Toa-m">12.6$</p>
+            <div class="col-mmm ">
+                <h3>Your bill</h3>
+                <div class="infor">
+                    <div class="boxBorder">
+                        <p>Time: <span id="info-m"> Thursday 27 Jan 2022 at 19:30 | Bedford Esquires, Room 2, Bedford</span></p>
+                        <p>Show name: <span id="pName"> electronic music night</span></p>
+                        <p>Number of people: <span id="pe-m">2</span></p>
+                         
+                    </div>
+                    <div class="boxBorder">
+                    
+                        <p>Total: <span id="Num-p">2</span></p>
+
+                    </div>
+                    <button class="btn-pay" onclick="sendPDF()">Pay</button>
+
+                </div>
 
             </div>
 
         </div>
             
-        <button  onclick="sendPDF()">ok</button>
+        
     </div>
 </body>
-</html>
+</html> -->

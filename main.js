@@ -138,7 +138,7 @@ htmlTickets = `
                           
                           <div class="row">
                             <div class="col-cus">GENERAL</div>
-                            <div class="col-cus">$9.2</div>
+                            <div class="col-cus">£9.2</div>
                             <div class="col-cus">
                                 <select onclick="removeWarning(warning1)" id="Selection-tickets">
 
@@ -385,16 +385,46 @@ htmlBuyticlets = `
         </div>`
 
 
-var htmlMail =`
-<div class="momo">
+var htmlMoMo =`
+<div class="modal-tickets modal-tickets2 tic ">
 <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
+<div class="momo">
+<h2>Pay with MoMo</h2>
 
-.contaiMomo
+<div class="row-m-m">
+    <div class="col-mmm">
+        <h3>QR code</h3>
+        <div class="pd-momo">
 
-    <img style="margin: 0px 800px 0;" src="./assets/img/Qrcode.png" alt="">
-    
-    <button style="margin: 0 900px ;" onclick="sendPDF()">ok</button>
+            <img src="./assets/img/QRcode.jpg" alt="">
+        </div>
+
     </div>
+    <div class="col-mmm ">
+        <h3>Your bill</h3>
+        <div class="infor">
+            <div class="boxBorder">
+                <p>Time: <span id="info-m"> Thursday 27 Jan 2022 at 19:30 | Bedford Esquires, Room 2, Bedford</span></p>
+                <p>Show name: <span id="pName"> electronic music night</span></p>
+                <p>Number of people: <span id="pe-m">2</span></p>
+                 
+            </div>
+            <div class="boxBorder">
+            
+                <p>Total: <span id="Num-p">2</span></p>
+
+            </div>
+            <button class="btn-pay" onclick="sendMail()">Pay</button>
+
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+    
+
+</div>
 `
 var modalLog = document.querySelector('.modal-login')
 var modal = document.querySelector('.add-content')
@@ -557,6 +587,9 @@ ipa1= "https://61bc10bed8542f001782452a.mockapi.io/londonTickets"
 
 // ============================== step 2
 
+var ticketLimit = 10      // admin
+
+
 async function Buyticlets(x){   // main
     data = await getData(ipa1)
     var ticketChoosing = document.querySelector("#Selection-tickets").value
@@ -565,7 +598,8 @@ async function Buyticlets(x){   // main
         alert("sold out")
 
     } else {
-        if(ticketChoosing > ticketNum){
+        console.log("123123123",ticketNum)
+        if(ticketChoosing > ticketLimit - ticketNum){
             alert("The number of tickets you have selected has exceeded the number of tickets remaining")
         } else if(ticketChoosing == 0){
             document.querySelector("#warning1").innerHTML = "Please choose at least one type of ticket to buy"
@@ -590,6 +624,7 @@ async function Buyticlets(x){   // main
 
 
                 openModal(htmlBuyticlets) //handel data
+                addTotal(ticketChoosing,9.2)
 
                 setTimeStart()
                 countdown()
@@ -599,6 +634,24 @@ async function Buyticlets(x){   // main
         }
 
     }
+}
+
+var ticketCostPay
+var ticketNumPay
+
+
+function addTotal(ticketNumVl,ticketCostVl ){
+    ticketCostPay = ticketCostVl
+    ticketNumPay = ticketNumVl
+    document.querySelector(".ticket-num").innerHTML = ticketNumPay
+    document.querySelector("#ticket-cost").innerHTML ="£"+ ticketCostVl*ticketNumPay
+
+}
+function getTotal(x){
+    totalPay = x
+    document.querySelector(".ticket-num").innerHTML = ticketNumPay
+
+
 }
 
 function countTickets(data) {
@@ -692,7 +745,7 @@ function payment(){                                                     // main
     
 
     if(checkRadio(deliveryOptions,refundProtection,PaymentOptions)){
-        openModal(htmlMail)
+        openModal(htmlMoMo)
     }
 }
 
@@ -701,19 +754,19 @@ function payment(){                                                     // main
 var deliveryOptions = document.getElementsByName("delivery-options")    
 var refundProtection = document.getElementsByName("refund-protection")    
 function getCost1(){
-    document.getElementById("value-DO").innerHTML = getValueRadio(deliveryOptions)   
+    document.getElementById("value-DO").innerHTML ="£"+ getValueRadio(deliveryOptions)   
     total()
 
 }
 function getCost2(){
-    document.getElementById("value-RP").innerHTML = getValueRadio(refundProtection)  
+    document.getElementById("value-RP").innerHTML = "£"+ getValueRadio(refundProtection)  
     total() 
 }
 
 function total(){                        //main
     var total = 0
-    total =  parseFloat(getValueRadio(deliveryOptions))  + parseFloat(getValueRadio(refundProtection))  + 9.2
-    document.getElementById("ticket-Total").innerHTML = total.toFixed(2) +"$"
+    total =  parseFloat(getValueRadio(deliveryOptions))  + parseFloat(getValueRadio(refundProtection))  + ticketCostPay* ticketNumPay
+    document.getElementById("ticket-Total").innerHTML = "£"+ total.toFixed(2) 
 }
 // function getCost1(){
 //     var deliveryOptions = document.getElementsByName("delivery-options")    
@@ -759,7 +812,7 @@ function countdown() {
         seconds = "0"+ seconds 
     }
     
-    document.getElementById("time-add").innerHTML = "0"+minutes + ":" + seconds
+    document.getElementById("time-add").innerHTML = " 0"+minutes + ":" + seconds
     seconds = parseFloat(seconds)
     t = setTimeout("countdown(x)", 1000)            
 }
@@ -773,3 +826,43 @@ function stopTime(){
 //     console.log("aaaaaaaaaaaaaaaa")
 //     return 'Các thay đổi chưa lưu của bạn sẽ bị mất.';
 // }
+
+// ============================== mail
+
+const sendPDF = async () => {
+    var opt = {
+        filename: 'ticket.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
+    };
+
+    var ticket = await html2pdf()
+        .set(opt)
+        .from(document.getElementById("sample"))
+        .output('datauri')
+    att = [
+        {
+            name: `ticket_#${1}.pdf`,
+            data: ticket
+        }
+    ]
+    sendEmail("linh.nguyenbuitai23@student.passerellesnumeriques.org", att)
+}
+
+function sendEmail(email, attachments) {
+    return Email.send({
+    Host: "smtp.gmail.com",
+    Username : "tranvanly2002@gmail.com",
+    Password : "doxlrpgatzeyqqto",
+    To : email,
+    From : "tranvanly2002@gmail.com",
+    Subject : "Mixband - Ticket",
+    Body : "aaaa",
+    Attachments: attachments
+    })
+    }
+function sendMail(){
+    // opent ticke
+
+}

@@ -111,7 +111,16 @@
     .modal-tickets .col-one{
         padding: 20px 0 5px 23px;
     }
-    
+    .row-m-m .col-mmm{
+        width: 100%;
+        
+    }
+    .btn-pay{
+        position: unset;
+    }
+    .pd-momo{
+        padding: 50px;
+    }
 }
 
 @media (min-width: 741px) and (max-width: 782px)  {
