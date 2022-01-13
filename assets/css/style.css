@@ -824,7 +824,7 @@ p.countdown-time, p#time-add,p.ticket-num,p.ticket-na {
 	background: #555; 
   }
 
-
+/* 
   html{
     box-sizing: border-box;
 }
@@ -844,7 +844,7 @@ body{
     margin: 0;
 }
 header {
-    /* width: 100vw; */
+    
     height: 100%;
     background-size: cover;
     position: fixed;
@@ -961,7 +961,7 @@ header {
 }
 .navigation-open .navigation_ul{
     transform: rotateY(0) translateX(0);
-}
+} */
 
   .momo {
     width: 800px;
