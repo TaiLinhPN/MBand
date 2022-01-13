@@ -350,6 +350,63 @@ function showSlides() {
     setTimeout(showSlides, 6000);
 }
     </script>
+
+<script>
+    var headerElement = document.getElementById('header');
+    var menuElement = document.getElementById('menu-mobile');
+    var menuHight = headerElement.clientHeight;
+    
+    menuElement.onclick = function() {
+        var isClosed = headerElement.clientHeight === menuHight
+        if (isClosed) {
+            headerElement.style.height = 'auto'
+        } else {
+            headerElement.style.height = null
+        }
+    }            
+
+    var count = 0    
+    var menuItems = document.querySelectorAll('.nav li a[href*="#"]')
+    
+    var subNav = document.getElementById('sub-nav-id');
+    
+    for (var i = 0; i < menuItems.length; i++) {
+        var menuItem = menuItems[i];
+       
+
+
+        menuItem.onclick = function(event) {
+        var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('sub-nav')
+
+            if (isParentMenu) {
+                event.preventDefault()
+                count += 1
+                console.log(count)
+
+            } else {
+                headerElement.style.height = null 
+                                  
+            }
+
+            if (count % 2 === 0) {
+                subNav.style.display = 'none'
+            } else {
+                subNav.style.display = null
+
+            }
+            
+            
+
+            
+        }
+
+
+    }
+    
+    
+    
+
+</script>
     
 </body>
 </html>
