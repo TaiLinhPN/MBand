@@ -84,4 +84,38 @@
         margin-bottom: 0 !important;
         margin-right: 24px !important;
     }
+
+    .login-wrap{
+      
+        width: 100%;
+    }
+
+    .modal-login{
+        /* position: sticky; */
+        top: -102px;
+        overflow-y: auto;
+
+    }
+
+    .modal-container{
+        /* margin: -28px auto 0; */
+        /* position: -webkit-sticky; */
+        /* position: sticky; */
+        /* top: -100px; */
+        overflow-y: auto;
+    }
+    .pBox{
+        width: 77%;
+    }
+
+    .modal-tickets .col-one{
+        padding: 20px 0 5px 23px;
+    }
+    
+}
+
+@media (min-width: 741px) and (max-width: 782px)  {
+    .modal-tickets .col-two{
+        width: 61.3333%;
+    }
 }
