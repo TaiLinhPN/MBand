@@ -113,6 +113,20 @@ a {
 
 }
 
+.cusss{
+	color: rgb(0, 0, 0);
+	line-height: 38px;
+	padding: 0px 18px;
+	display: block;
+	
+	
+}
+
+.cusss:hover{
+	background-color: #ccc;
+	color: #000;
+}
+
 .nav > li:hover > a,
 .sub-nav li:hover  a {
 	background-color: #ccc;
