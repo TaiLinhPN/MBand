@@ -50,13 +50,43 @@
 
         </div>
 
-        <div  id="silder">
+        <!-- <div  id="silder">
             <div class="text-content">
                 <h2 class="text-heading">Chicago</h2>
                 <p class="text-description">Thank you, Chicago - A night we won't forget.</p>
             </div>
 
+        </div> -->
+        <!-- --------------------------------------------------- -->
+
+
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="./assets/img slides-20220113T064407Z-001/img slides/3892231.jpg" style="width: 100%;" alt="">
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="./assets/img slides-20220113T064407Z-001/img slides/3892364.jpg" style="width: 100%;" alt="">
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext"></div>
+                <img src="./assets/img slides-20220113T064407Z-001/img slides/neon-wallpaper-2008181520192-scaled.jpg" style="width: 100%;" alt="">
+            </div>
+    
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
         </div>
+        <br>
+        <!-- <div style="text-align: center;">
+            <span class="dot" onclick="currentSlides(1)"></span>
+            <span class="dot" onclick="currentSlides(2)"></span>
+            <span class="dot" onclick="currentSlides(3)"></span>
+    
+        </div> -->
+
+        <!-- --------------------------------------------------- -->
 
         <div id="content">
             <!-- about -->
@@ -169,10 +199,14 @@
 
             </div>
 
-            <div class="map-section">
+            <div  class="tour-section">
+                <div class="content-section">
+                    <h2 class="section-heading">US MUSIC</h2>
+                    <p class="sub-heading">Take a little music and feel with us!</p>
                 <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO3DbIU8?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                 <!-- <img src="./assets/img/singapore.jpg" alt="" class=""> -->
             </div>
+        </div>
 
 
         </div>
@@ -265,6 +299,57 @@
 
 
     <script src="./main.js"></script>
+
+    <script>
+        var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n){
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n){
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n){
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++){
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++){
+        dots[i].className = dots[i].className.replace("active","");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += "active";
+}
+
+
+
+// Auto SLide
+
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++){
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length){
+        slideIndex = 1
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 4000);
+}
+    </script>
     
 </body>
 </html>
