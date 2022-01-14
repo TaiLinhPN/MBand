@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,20 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+
+        .emh1{
+            text-align: center;
+            font: 2.2em "Fira Sans", sans-serif;
+
+            margin-top: 30px;
+        }
+        .emh2{
+            font: 1.2em "Fira Sans", sans-serif;
+            text-align: center;
+        }
+    </style>
+
     <div class="container" id="sample">
         <img src="./assets/img/ticket.png" style="width: 100%;">
         <div class="content">
@@ -34,11 +48,12 @@
             </div>
         </div>
     </div>
-    <img style="margin: 0px 800px 0;" src="./assets/img/Qrcode.png" alt="">
+    <!-- <img style="margin: 0px 800px 0;" src="./assets/img/Qrcode.png" alt=""> -->
     
-    <button style="margin: 0 900px ;" onclick="sendPDF()">ok</button>
+    <!-- <button style="margin: 0 900px ;" onclick="sendPDF()">ok</button> -->
 
-
+<h1 class="emh1">successful ticket purchase</h1>
+<p class="emh2">Thanks for coming to us</p>
 
 
     <script >
@@ -75,7 +90,14 @@ function sendEmail(email, attachments) {
     Attachments: attachments
     })
     }
+
+    function sayHello() {
+        alert("Your ticket will be send to your email address")
+        sendPDF();
+      }
+      setTimeout(sayHello, 2000);
+
     </script>
 </body>
     
-</html> -->
+</html>

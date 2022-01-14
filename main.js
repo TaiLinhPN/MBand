@@ -426,6 +426,36 @@ var htmlMoMo =`
 
 </div>
 `
+
+var htmlmail = `
+<div class="modal-tickets modal-tickets2 tic ">
+<i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
+<p>123131313131312313</p>
+    <div class="container" id="sample">
+        <img src="./assets/img/ticket.png" style="width: 100%;">
+        <div class="content">
+            <div class="content-left">
+                <h1 class="text neon">ELECTRO</h1>
+                <h3 class="text neons">MUSIC NIGHT</h3>
+                <h5 class="text-l1">DJ KOREAN - DJ PEREZ</h5>
+                <hr><br><br>
+                <h5 class="text-l2">PRICE : $25</h5>
+                <h5 class="text-l3">TIME : AT 23:00</h5>
+                <h5 class="text-l4">DATE : DEC 24TH, 2030</h5>
+            </div>
+            <div class="content-right">
+                <h4 class="text-r1">ADMIT ONE</h4>
+                <h6 class="text-r2">GATE : 4A</h6>
+                <h6 class="text-r3">ROW : 02</h6>
+                <h6 class="text-r4">SEAT : 03</h6>
+                <h5 class="text-r5">ID : 57487931</h5>
+            </div>
+        </div>
+    </div>
+    <button class="btn-pay" onclick="sendPDF();">OK</button>
+</div>`
+
+
 var modalLog = document.querySelector('.modal-login')
 var modal = document.querySelector('.add-content')
 
@@ -829,40 +859,51 @@ function stopTime(){
 
 // ============================== mail
 
-const sendPDF = async () => {
-    var opt = {
-        filename: 'ticket.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
-    };
+// const sendPDF = async () => {
+//     var opt = {
+//         filename: 'ticket.pdf',
+//         image: { type: 'jpeg', quality: 0.98 },
+//         html2canvas: { scale: 2 },
+//         jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
+//     };
 
-    var ticket = await html2pdf()
-        .set(opt)
-        .from(document.getElementById("sample"))
-        .output('datauri')
-    att = [
-        {
-            name: `ticket_#${1}.pdf`,
-            data: ticket
-        }
-    ]
-    sendEmail("linh.nguyenbuitai23@student.passerellesnumeriques.org", att)
-}
+//     var ticket = await html2pdf()
+//         .set(opt)
+//         .from(document.getElementById("sample"))
+//         .output('datauri')
+//     att = [
+//         {
+//             name: `ticket_#${1}.pdf`,
+//             data: ticket
+//         }
+//     ]
+//     sendEmail("linh.nguyenbuitai23@student.passerellesnumeriques.org", att)
+// }
 
-function sendEmail(email, attachments) {
-    return Email.send({
-    Host: "smtp.gmail.com",
-    Username : "tranvanly2002@gmail.com",
-    Password : "doxlrpgatzeyqqto",
-    To : email,
-    From : "tranvanly2002@gmail.com",
-    Subject : "Mixband - Ticket",
-    Body : "aaaa",
-    Attachments: attachments
-    })
-    }
+// function sendEmail(email, attachments) {
+//     return Email.send({
+//     Host: "smtp.gmail.com",
+//     Username : "tranvanly2002@gmail.com",
+//     Password : "doxlrpgatzeyqqto",
+//     To : email,
+//     From : "tranvanly2002@gmail.com",
+//     Subject : "Mixband - Ticket",
+//     Body : "aaaa",
+//     Attachments: attachments
+//     })
+//     }
 function sendMail(){
-    // opent ticke
+    window.location.assign("./payment.html")
 
+    // document.querySelector("#sample")
+
+    // console.log(document.querySelector("#sample"))
+
+    // function sayHello() {
+    //     alert("Your ticket will be send to your email address")
+    //     sendPDF();
+    //   }
+    //   setTimeout(sayHello, 2000);
+
+    
 }
