@@ -907,3 +907,38 @@ function sendMail(){
 
     
 }
+
+
+
+// =======================================================
+
+
+var ipaTic = "https://61bec846b25c3a00173f4b70.mockapi.io/music"
+async function getTick(){
+    var datatic = await getData(ipaTic)
+
+    var addTic = document.querySelector(".place-list")
+
+
+    for(var i = 0; i < datatic.length; i++){
+        console.log(datatic[i])
+        addTic.innerHTML += `
+        <div class="col-3 col mobile-item m-t-16">
+        <img src="${datatic[i].image}" alt="New York" class="place-img">
+        <div class="place-content">
+            <h3 class="place-heading">${datatic[i].category}</h3>
+            <p class="place-time">${datatic[i].date}</p>
+            <p class="place-decs">${datatic[i].content}</p>
+            <button onclick="openModalBuyTickets()" class="place-btn">Buy ticket</button>
+        </div>
+    </div>
+        
+        `
+    
+    }
+
+}
+
+getTick()
+
+// ---------------------------------------

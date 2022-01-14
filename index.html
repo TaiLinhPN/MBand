@@ -16,6 +16,7 @@
     integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>The MBand</title>
 </head>
 <body>
@@ -163,11 +164,11 @@
                     </ul> -->
 
                     <div class="place-list row">
-                        <div class="col-3 col mobile-item m-t-16">
+                        <!-- <div class="col-3 col mobile-item m-t-16">
                             <img src="./assets/img/eiffel-tower.jpg" alt="New York" class="place-img">
                             <div class="place-content">
-                                <h3 class="place-heading">New York</h3>
-                                <p class="place-time">Fri 27 Nov 2016</p>
+                                <h3 class="place-heading">Paris</h3>
+                                <p class="place-time">January 24, 2022</p>
                                 <p class="place-decs">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                                 <button onclick="openModalBuyTickets()" class="place-btn">Buy ticket</button>
                             </div>
@@ -177,7 +178,7 @@
                             <img src="./assets/img/london.jpg" alt="New York" class="place-img">
                             <div class="place-content">
                                 <h3 class="place-heading">New York</h3>
-                                <p class="place-time">Fri 27 Nov 2016</p>
+                                <p class="place-time">March 1, 2022</p>
                                 <p class="place-decs">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                                 <button onclick="openModalBuyTickets()" class="place-btn">Buy ticket</button>
                             </div>
@@ -186,12 +187,12 @@
                         <div class="col-3 col mobile-item m-t-16">
                             <img src="./assets/img/freedom-tower.jpg" alt="New York" class="place-img">
                             <div class="place-content">
-                                <h3 class="place-heading">New York</h3>
-                                <p class="place-time">Fri 27 Nov 2016</p>
+                                <h3 class="place-heading">London</h3>
+                                <p class="place-time">May 15, 2022</p>
                                 <p class="place-decs">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                                 <button onclick="openModalBuyTickets()" class="place-btn">Buy ticket</button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="clear"></div>
 
                     </div>
@@ -212,7 +213,7 @@
 
                     </div>
 
-                    <form class="col col-2 contact-fomt mobile-item ">
+                    <!-- <form class="col col-2 contact-fomt mobile-item ">
                         <div class="row fomt">
                             <div class="col col-2 mobile-item ">
                                 <input class="fomt-control" type="text" required placeholder="Name"  name="" id="">
@@ -229,6 +230,26 @@
                             </div>
                         </div>
                         <button >Send</button>
+                    </form> -->
+
+                    <form class="col col-2 contact-fomt mobile-item ">
+                        <div class="row fomt">
+                            <div class="col col-2 mobile-item ">
+                                <input class="fomt-control" type="text" required placeholder="Name" name="" id="name">
+                            </div>
+
+                            <div class="col col-2 mobile-item ">
+                                <input class="fomt-control" type="text" required placeholder="Email" name="" id="email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-full">
+                                <input class="fomt-control col-full " type="text" required placeholder="Messenger" name="" id="mess">
+
+                            </div>
+                        </div>
+                        <button type="button" onclick="addC()">Send</button>
+
                     </form>
                 </div>
 
@@ -418,6 +439,29 @@ function showSlides() {
             counter = 1;
         }
     }, 4000);
+</script>
+
+<script>
+const apiUrl = "https://61bc10bed8542f0017824526.mockapi.io/menuContact";
+
+function postC(data) {
+    axios.post(apiUrl, data).then(res => console.log(res.data));
+}
+
+function addC() {
+
+    var nameC = document.getElementById('name').value;
+    var emailC = document.getElementById('email').value;
+    var messC = document.getElementById('mess').value;
+
+    data = {
+        name: nameC,
+        email: emailC,
+        message: messC,
+
+    }
+    postC(data)
+}
 </script>
 
 <script src="./main.js"></script>
