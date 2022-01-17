@@ -200,13 +200,7 @@ line-height: 48px;
 	cursor: pointer;	
 }
 
-/* #silder {
 
-	margin-top: 48px;
-	padding-top: 50%;
-	background:url("../img/549394.jpg") top center / cover no-repeat ;
-	position: relative;
-} */
 
 #silder .text-content { 
 	position: absolute;
@@ -426,75 +420,6 @@ line-height: 48px;
 #footer p > a{
 	text-decoration: underline;
 }
-/* 
-.modal {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.6);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-
-}
-
-.modal-container {
-	background-color: #fff;
-	width: 800px;
-	max-width: 800px;
-	position: relative;
-}
-
-.modal-close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 20px;
-
-}
-
-.modal-close:hover {
-	background-color:#ccc;
-
-}
-
-.modal-header {
-	background-color: #009688 ;
-	height: 130px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 30px;
-	color: #fff;
-	
-}
-
-.modal-header i {
-	margin-right: 16px;
-
-}
-
-.main-modal {
-	padding: 16px;
-	
-}
-
-
-.main-modal  label {
-	display: block;
-	margin-top: 12px  
-}
-
-
-.main-modal input{
-	width: 100%;
-	border: #757575 1px solid;
-	padding:10px;
-	margin: 8px 0 24px 0;
-} */
 
 .login-signup{
 	display: flex;

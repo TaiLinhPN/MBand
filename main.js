@@ -1,54 +1,3 @@
-// var headerElement = document.getElementById('header');
-// var menuElement = document.getElementById('menu-mobile');
-// var menuHight = headerElement.clientHeight;
-
-// menuElement.onclick = function() {
-//     var isClosed = headerElement.clientHeight === menuHight
-//     if (isClosed) {
-//         headerElement.style.height = 'auto'
-//     } else {
-//         headerElement.style.height = null
-//     }
-// }            
-
-// var count = 0    
-// var menuItems = document.querySelectorAll('.nav li a[href*="#"]')
-
-// var subNav = document.getElementById('sub-nav-id');
-
-// for (var i = 0; i < menuItems.length; i++) {
-//     var menuItem = menuItems[i];
-   
-
-
-//     menuItem.onclick = function(event) {
-//     var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('sub-nav')
-
-//         if (isParentMenu) {
-//             event.preventDefault()
-//             count += 1
-//             console.log(count)
-
-//         } else {
-//             headerElement.style.height = null 
-                              
-//         }
-
-//         if (count % 2 === 0) {
-//             subNav.style.display = 'none'
-//         } else {
-//             subNav.style.display = null
-
-//         }
-        
-        
-
-        
-//     }
-
-
-// }
-
 htmlLog = `<div class="login-wrap">
 <i onclick="closeModal()" class="fa fa-times-circle colse-modal" aria-hidden="true"></i>
 
@@ -648,9 +597,6 @@ async function Buyticlets(x){   // main
                     peopleNum: parseInt(ticketChoosing),
                 }
 
-                // console.log(dataPut)
-                // await putdata(ipa,dataPut)
-                // console.log(await getData(ipa))
 
 
                 openModal(htmlBuyticlets) //handel data
@@ -798,10 +744,6 @@ function total(){                        //main
     total =  parseFloat(getValueRadio(deliveryOptions))  + parseFloat(getValueRadio(refundProtection))  + ticketCostPay* ticketNumPay
     document.getElementById("ticket-Total").innerHTML = "£"+ total.toFixed(2) 
 }
-// function getCost1(){
-//     var deliveryOptions = document.getElementsByName("delivery-options")    
-//     document.getElementById("value-DO").innerHTML = getValueRadio(deliveryOptions)   
-// }
 
 
 // ============================== countdown
@@ -851,60 +793,9 @@ function stopTime(){
     x = 0
 }
 
-// ============================== stop countdown
-// window.onbeforeunload = function () {
-//     console.log("aaaaaaaaaaaaaaaa")
-//     return 'Các thay đổi chưa lưu của bạn sẽ bị mất.';
-// }
 
-// ============================== mail
-
-// const sendPDF = async () => {
-//     var opt = {
-//         filename: 'ticket.pdf',
-//         image: { type: 'jpeg', quality: 0.98 },
-//         html2canvas: { scale: 2 },
-//         jsPDF: { unit: 'cm', format: 'a4', orientation: 'landscape' }
-//     };
-
-//     var ticket = await html2pdf()
-//         .set(opt)
-//         .from(document.getElementById("sample"))
-//         .output('datauri')
-//     att = [
-//         {
-//             name: `ticket_#${1}.pdf`,
-//             data: ticket
-//         }
-//     ]
-//     sendEmail("linh.nguyenbuitai23@student.passerellesnumeriques.org", att)
-// }
-
-// function sendEmail(email, attachments) {
-//     return Email.send({
-//     Host: "smtp.gmail.com",
-//     Username : "tranvanly2002@gmail.com",
-//     Password : "doxlrpgatzeyqqto",
-//     To : email,
-//     From : "tranvanly2002@gmail.com",
-//     Subject : "Mixband - Ticket",
-//     Body : "aaaa",
-//     Attachments: attachments
-//     })
-//     }
 function sendMail(){
     window.location.assign("./payment.html")
-
-    // document.querySelector("#sample")
-
-    // console.log(document.querySelector("#sample"))
-
-    // function sayHello() {
-    //     alert("Your ticket will be send to your email address")
-    //     sendPDF();
-    //   }
-    //   setTimeout(sayHello, 2000);
-
     
 }
 
